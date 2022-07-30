@@ -1,7 +1,8 @@
 {
   "name": "kuna",
-  "version": "0.1.0",
-  "private": true,
+  "displayName": "Kuna",
+  "version": "1.0.2",
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
