@@ -4,6 +4,7 @@ import kuna, { Currency } from '../utils/kuna';
 import moment from 'moment';
 import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from 'react';
 import rates from '../utils/rates';
+import { getMillisecondsTillMidnight } from '../utils/common';
 
 const Home = ({ rate }: { rate: number }) => {
   const [from, setFrom] = useState<Currency>(Currency.Kuna);

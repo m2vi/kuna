@@ -1,3 +1,5 @@
+import cache from 'memory-cache';
+
 class Rates {
   private date(): { today: string; yesterday: string } {
     return {
@@ -16,7 +18,7 @@ class Rates {
       .catch(() => null);
   }
 
-  async get(fcurrency: string, currency: string): Promise<number> {
+  private async getN(fcurrency: string, currency: string): Promise<number> {
     let data = null;
 
     const { today, yesterday } = this.date();
@@ -28,6 +30,27 @@ class Rates {
     }
 
     return data?.[currency.toLowerCase()] ?? null;
+  }
+
+  private cacheKey(fc: string, f: string) {
+    return `${fc}-${f}`.toLowerCase();
+  }
+
+  async get(fcurrency: string, currency: string): Promise<number> {
+    const key = this.cacheKey(fcurrency, currency);
+    const cached = cache.get(key);
+
+    if (cached) {
+      return cached;
+    }
+
+    const n = await this.getN(fcurrency, currency);
+
+    if (n) {
+      cache.put(key, n);
+    }
+
+    return n;
   }
 }
 

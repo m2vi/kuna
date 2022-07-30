@@ -10,18 +10,19 @@
   --color-primary-300: #636a7e;
   --color-primary-400: #afb4c0;
 
-  --color-primary-700: hsl(0, 0%, 100%);
-  --color-primary-800: hsl(240, 8%, 97%);
-  --color-primary-900: hsl(240, 10%, 94%);
+  --color-primary-700: #ffffff;
+  --color-primary-800: #f7f7f8;
+  --color-primary-900: #eeeef1;
 }
 
 select {
   appearance: none;
   overflow: auto;
 
-  width: 60px;
+  width: 69px;
 
-  text-indent: -5px;
+  text-align: left;
+
   position: relative;
   background-color: transparent;
   background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 10L12 14L16 10' stroke='%23090A0B' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
@@ -29,6 +30,4 @@ select {
   background-size: 24px;
   background-position: right center;
   background-clip: border-box;
-  -moz-background-clip: border-box;
-  -webkit-background-clip: border-box;
 }
